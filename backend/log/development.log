@@ -1,0 +1,56 @@
+  [1m[35m (12.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (17.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (14.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArtists (20210217191147)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "artists" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210217191147"]]
+  [1m[35m (15.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateArtworks (20210217191236)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "artworks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "image" varchar, "artist_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_61f542e710"
+FOREIGN KEY ("artist_id")
+  REFERENCES "artists" ("id")
+)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE  INDEX "index_artworks_on_artist_id" ON "artworks" ("artist_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210217191236"]]
+  [1m[35m (16.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-02-17 19:18:42.969185"], ["updated_at", "2021-02-17 19:18:42.969185"]]
+  [1m[35m (12.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mArtwork Load (0.5ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (2.6ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Claude Monet"], ["created_at", "2021-02-17 19:38:22.018184"], ["updated_at", "2021-02-17 19:38:22.018184"]]
+  [1m[35m (10.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (2.3ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Vincent Van Gogh"], ["created_at", "2021-02-17 19:38:22.041180"], ["updated_at", "2021-02-17 19:38:22.041180"]]
+  [1m[35m (11.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArtwork Create (2.6ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Impression Sunrise"], ["image", "https://www.claude-monet.com/images/paintings/impression-sunrise.jpg"], ["artist_id", 1], ["created_at", "2021-02-17 19:38:22.145925"], ["updated_at", "2021-02-17 19:38:22.145925"]]
+  [1m[35m (11.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArtwork Create (2.5ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Garden at Saint Adresse"], ["image", "https://www.claude-monet.com/images/paintings/garden-at-sainte-adresse.jpg"], ["artist_id", 1], ["created_at", "2021-02-17 19:38:22.170143"], ["updated_at", "2021-02-17 19:38:22.170143"]]
+  [1m[35m (11.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArtwork Create (2.1ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Sunflowers"], ["image", "https://www.vangoghgallery.com/skin/img/sunflower_full.jpg"], ["artist_id", 2], ["created_at", "2021-02-17 19:38:22.195579"], ["updated_at", "2021-02-17 19:38:22.195579"]]
+  [1m[35m (10.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArtwork Create (3.7ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Starry Night"], ["image", "https://www.vangoghgallery.com/img/starry_night_full.jpg"], ["artist_id", 2], ["created_at", "2021-02-17 19:38:22.219411"], ["updated_at", "2021-02-17 19:38:22.219411"]]
+  [1m[35m (10.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mArtwork Load (0.3ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mArtwork Load (0.3ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" ORDER BY "artworks"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mArtist Load (0.4ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
