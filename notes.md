@@ -1,14 +1,5 @@
-Artist :name
-has_many :artworks
+refactor to oo js
 
-Artwork :title :image
-belongs_to :artist
+add styling
 
-
-rails g model Artist name
-rails g model Artwork title image artist:references
-
-* add validations to models
-
-rails g controller api/v1/artists
-rails g controller api/v1/artworks
+add delete action
