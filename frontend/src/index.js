@@ -1,7 +1,6 @@
 const artworkEndpoint = "http://localhost:3000/api/v1/artworks"
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("Hello World")
     const button = document.querySelector("button")
 
     fetchArtworks()
@@ -13,47 +12,17 @@ function fetchArtworks() {
     fetch(artworkEndpoint)
     .then(res => res.json())
     .then(json => json.data.forEach(obj => {
-        renderArtwork(obj.attributes)
+        let artwork = new Artwork(obj, obj.attributes)
+        artwork.renderArtwork()
+        
+        document.querySelector(`.delete-${artwork.id}`).addEventListener("click", () => {
+            deleteFetch(artwork.id)
+        })
     }
     ))
 }
 
-function renderArtwork(artworkObj) {
-    const container = document.querySelector("#main")
-
-    let frame = document.createElement("div")
-
-    let image = document.createElement("img")
-    image.src = artworkObj.image
-
-    let title = document.createElement("h3")
-    title.innerHTML = artworkObj.title
-
-    let artist = document.createElement("p")
-    artist.innerHTML = artworkObj.artist.name
-
-    frame.appendChild(image)
-    frame.appendChild(title)
-    frame.appendChild(artist)
-
-    container.appendChild(frame)
-}
-
 function renderForm(){
-    // let html = `
-    // <form class="artwork-form">
-    //     <input type="text name="title" placeholder="Title" id="artwork-title">
-    //     <br>
-    //     <input type="text" name="image" placeholder="Image URL" id="artwork-image">
-    //     <br>
-    //     <select name="artist" id="artwork-artist">
-    //         <option value="1">Monet</option>
-    //         <option value="2">Van Gogh</option>
-    //     </select>
-    //     <br>
-    //     <input type="submit" value="Submit" class="submit">
-    // </form>`
-    // document.querySelector('#form-container').innerHTML += html
     document.querySelector("#form-container").style.visibility = "visible"
     document.querySelector("button").style.visibility = 'hidden'
 
@@ -87,8 +56,27 @@ function postFetch(title, image, artist_id) {
     })
     .then(res => res.json())
     .then(artwork => {
-        renderArtwork(artwork.data.attributes)
+        let newArtwork = new Artwork(artwork.data, artwork.data.attributes)
+        newArtwork.renderArtwork()
+
+        document.querySelector(`.delete-${newArtwork.id}`).addEventListener("click", () => {
+            deleteFetch(newArtwork.id)
+        })
+
         document.querySelector("#form-container").style.visibility = "hidden"
         document.querySelector("button").style.visibility = "visible"
+    })
+}
+
+function deleteFetch(id) {
+    fetch(`http://localhost:3000/api/v1/artworks/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+    .then(resp => resp.json())
+    .then(artwork => {
+        document.getElementById(`${artwork.data.id}`).remove()
     })
 }
