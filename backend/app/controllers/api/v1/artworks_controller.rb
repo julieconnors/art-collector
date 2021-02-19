@@ -6,7 +6,6 @@ class Api::V1::ArtworksController < ApplicationController
     end
 
     def create
-        # binding.pry
         artwork = Artwork.new(artwork_params)
 
         if artwork.save
@@ -14,6 +13,19 @@ class Api::V1::ArtworksController < ApplicationController
         else
             render json: { errors: artwork.errors.full_messages }
         end
+    end
+
+    def show
+        artwork = Artwork.find(params[:id])
+
+        render json: ArtworkSerializer.new(artwork)        
+    end
+
+    def destroy
+        artwork = Artwork.find(params[:id])
+        artwork.destroy
+
+        render json: ArtworkSerializer.new(artwork)
     end
 
     private
