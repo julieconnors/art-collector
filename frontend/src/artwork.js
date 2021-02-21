@@ -14,6 +14,7 @@ class Artwork {
 
         let frame = document.createElement("div")
         frame.setAttribute("id", this.id)
+        frame.setAttribute("class", "frame")
 
         let image = document.createElement("img")
         image.src = this.image
