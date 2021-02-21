@@ -1,5 +1,11 @@
-refactor to oo js
+include add artist
+
+add validation to models
+*render error messages
 
 add styling
 
-add delete action
+create a user class with fake login
+    -users can only CD their own collections
+
+refactor to oo js
