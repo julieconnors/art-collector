@@ -9,6 +9,7 @@ class Service {
         .then(res => res.json())
         .then(json => json.data.forEach(obj => {
             let artwork = new Artwork(obj, obj.attributes)
+            
             artwork.renderArtwork()
         
             document.querySelector(`.delete-${artwork.id}`).addEventListener("click", () => {
@@ -17,8 +18,18 @@ class Service {
         ))
     }
 
-    postFetch(title, image, artist_id) {
-        const artworkData = {title, image, artist_id}
+    fetchArtists(){
+        fetch("http://localhost:3000/api/v1/artists")
+        .then(res => res.json())
+        .then(json => json.data.forEach(obj => {
+            let artist = new Artist(obj.attributes.name)
+            // debugger
+            artist.addSelectOption()
+        }))
+    }
+
+    postFetch(title, image, artist_id, artist_name) {
+        const artworkData = {title, image, artist_id, artist_name}
         fetch("http://localhost:3000/api/v1/artworks", {
             method: "POST",
             headers: {
@@ -34,7 +45,7 @@ class Service {
             }
             else {
                 let newArtwork = new Artwork(artwork.data, artwork.data.attributes)
-
+                
                 newArtwork.renderArtwork()
     
                 document.querySelector(`.delete-${newArtwork.id}`).addEventListener("click", () => {
@@ -69,6 +80,26 @@ class Service {
         .then(resp => resp.json())
         .then(artwork => {
             document.getElementById(`${artwork.data.id}`).remove()
+        })
+    }
+
+    postArtistFetch(name){
+        const artistData = {name}
+        fetch("http://localhost:3000/api/v1/artists", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(artistData)
+        })
+        .then(res => res.json())
+        .then(artist => {
+            let newArtist = new Artist(artist.data.attributes.name)
+            newArtist.addSelectOption()
+            // debugger
+            document.querySelector(".artwork-form").style.visibility = "visible"
+            document.querySelector(".add-artist").style.visibility = "hidden"
         })
     }
 
