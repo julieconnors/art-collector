@@ -22,14 +22,14 @@ class Service {
         fetch("http://localhost:3000/api/v1/artists")
         .then(res => res.json())
         .then(json => json.data.forEach(obj => {
-            let artist = new Artist(obj.attributes.name)
-            // debugger
+            let artist = new Artist(obj, obj.attributes)
+
             artist.addSelectOption()
         }))
     }
 
-    postFetch(title, image, artist_id, artist_name) {
-        const artworkData = {title, image, artist_id, artist_name}
+    postFetch(title, image, artist_id) {
+        const artworkData = {title, image, artist_id}
         fetch("http://localhost:3000/api/v1/artworks", {
             method: "POST",
             headers: {
@@ -51,9 +51,9 @@ class Service {
                 document.querySelector(`.delete-${newArtwork.id}`).addEventListener("click", () => {
                     this.deleteFetch(newArtwork.id)
                 })
-    
-                document.querySelector("#form-container").style.visibility = "hidden"
-                document.querySelector("button").style.visibility = "visible"
+
+                const f = document.querySelector(".artwork-form")
+                f.reset()
             }
         })
     }
@@ -95,11 +95,10 @@ class Service {
         })
         .then(res => res.json())
         .then(artist => {
-            let newArtist = new Artist(artist.data.attributes.name)
+            let newArtist = new Artist(artist.data, artist.data.attributes)
             newArtist.addSelectOption()
-            // debugger
-            document.querySelector(".artwork-form").style.visibility = "visible"
-            document.querySelector(".add-artist").style.visibility = "hidden"
+
+            document.querySelector(".artist-form").style.visibility = "hidden"
         })
     }
 
