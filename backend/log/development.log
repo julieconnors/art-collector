@@ -5240,3 +5240,1243 @@ Processing by Api::V1::ArtistsController#create as JSON
 Completed 200 OK in 24ms (Views: 0.5ms | ActiveRecord: 14.1ms | Allocations: 3162)
 
 
+Started GET "/api/v1/artworks" for ::1 at 2021-02-22 20:53:06 -0500
+Started GET "/api/v1/artists" for ::1 at 2021-02-22 20:53:06 -0500
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArtistsController#index as */*
+Processing by Api::V1::ArtworksController#index as */*
+  [1m[36mArtist Load (0.4ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mArtwork Load (0.5ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 40ms (Views: 26.6ms | ActiveRecord: 1.9ms | Allocations: 7821)
+
+
+  [1m[36mArtist Load (0.4ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 83ms (Views: 72.5ms | ActiveRecord: 3.3ms | Allocations: 16953)
+
+
+Started POST "/api/v1/artists" for ::1 at 2021-02-22 20:53:30 -0500
+Processing by Api::V1::ArtistsController#create as JSON
+  Parameters: {"name"=>"Edouard Manet", "artist"=>{"name"=>"Edouard Manet"}}
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+  [1m[36mArtist Create (5.7ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Edouard Manet"], ["created_at", "2021-02-23 01:53:30.605703"], ["updated_at", "2021-02-23 01:53:30.605703"]]
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+  [1m[35m (33.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+Completed 200 OK in 128ms (Views: 1.2ms | ActiveRecord: 39.7ms | Allocations: 3491)
+
+
+Started GET "/api/v1/artworks" for ::1 at 2021-02-22 21:19:18 -0500
+Started GET "/api/v1/artists" for ::1 at 2021-02-22 21:19:18 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::ArtworksController#index as */*
+  [1m[36mArtwork Load (1.1ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+Processing by Api::V1::ArtistsController#index as */*
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (2.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mArtist Load (1.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 23ms (Views: 20.0ms | ActiveRecord: 2.3ms | Allocations: 2817)
+
+
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.4ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 54ms (Views: 50.3ms | ActiveRecord: 2.6ms | Allocations: 7606)
+
+
+Started GET "/api/v1/artworks" for ::1 at 2021-02-22 21:21:11 -0500
+Started GET "/api/v1/artists" for ::1 at 2021-02-22 21:21:11 -0500
+Processing by Api::V1::ArtworksController#index as */*
+  [1m[36mArtwork Load (0.3ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+Processing by Api::V1::ArtistsController#index as */*
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.2ms | Allocations: 2773)
+
+
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 25ms (Views: 23.8ms | ActiveRecord: 0.9ms | Allocations: 7889)
+
+
+Started POST "/api/v1/artists" for ::1 at 2021-02-22 21:21:21 -0500
+Processing by Api::V1::ArtistsController#create as JSON
+  Parameters: {"name"=>"hhh", "artist"=>{"name"=>"hhh"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+  [1m[36mArtist Create (2.5ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "hhh"], ["created_at", "2021-02-23 02:21:21.458445"], ["updated_at", "2021-02-23 02:21:21.458445"]]
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+  [1m[35m (12.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+Completed 200 OK in 26ms (Views: 0.7ms | ActiveRecord: 15.2ms | Allocations: 3212)
+
+
+Started GET "/api/v1/artists" for ::1 at 2021-02-22 21:27:33 -0500
+Started GET "/api/v1/artworks" for ::1 at 2021-02-22 21:27:33 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::ArtistsController#index as */*
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+Processing by Api::V1::ArtworksController#index as */*
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+  [1m[36mArtwork Load (0.4ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.3ms | Allocations: 2417)
+
+
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.4ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 1.1ms | Allocations: 6828)
+
+
+Started GET "/api/v1/artworks" for ::1 at 2021-02-22 21:32:29 -0500
+Processing by Api::V1::ArtworksController#index as */*
+  [1m[36mArtwork Load (0.4ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+Started GET "/api/v1/artists" for ::1 at 2021-02-22 21:32:29 -0500
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.4ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Processing by Api::V1::ArtistsController#index as */*
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mCACHE Artist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.3ms | Allocations: 2569)
+
+
+  [1m[36mArtist Load (0.4ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 39ms (Views: 36.5ms | ActiveRecord: 1.3ms | Allocations: 8274)
+
+
+Started POST "/api/v1/artists" for ::1 at 2021-02-22 21:32:45 -0500
+Processing by Api::V1::ArtistsController#create as JSON
+  Parameters: {"name"=>"mads", "artist"=>{"name"=>"mads"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+  [1m[36mArtist Create (2.1ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "mads"], ["created_at", "2021-02-23 02:32:45.906037"], ["updated_at", "2021-02-23 02:32:45.906037"]]
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+  [1m[35m (37.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+Completed 200 OK in 51ms (Views: 0.6ms | ActiveRecord: 39.6ms | Allocations: 3212)
+
+
+Started GET "/api/v1/artists" for ::1 at 2021-02-22 21:35:40 -0500
+Started GET "/api/v1/artworks" for ::1 at 2021-02-22 21:35:40 -0500
+Processing by Api::V1::ArtistsController#index as */*
+  [1m[36mArtist Load (0.6ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+Processing by Api::V1::ArtworksController#index as */*
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+  [1m[36mArtwork Load (0.5ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.6ms | Allocations: 2495)
+
+
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.8ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.4ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 40ms (Views: 37.4ms | ActiveRecord: 1.8ms | Allocations: 6905)
+
+
+Started POST "/api/v1/artists" for ::1 at 2021-02-22 21:35:48 -0500
+Processing by Api::V1::ArtistsController#create as JSON
+  Parameters: {"name"=>"nat", "artist"=>{"name"=>"nat"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+  [1m[36mArtist Create (2.5ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "nat"], ["created_at", "2021-02-23 02:35:48.275145"], ["updated_at", "2021-02-23 02:35:48.275145"]]
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+  [1m[35m (11.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+Completed 200 OK in 25ms (Views: 0.7ms | ActiveRecord: 14.1ms | Allocations: 3162)
+
+
+Started POST "/api/v1/artworks" for ::1 at 2021-02-22 21:37:09 -0500
+Processing by Api::V1::ArtworksController#create as JSON
+  Parameters: {"title"=>"hghj", "image"=>"ggk", "artist_id"=>nil, "artwork"=>{"title"=>"hghj", "image"=>"ggk", "artist_id"=>nil}}
+Completed 200 OK in 32ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 2154)
+
+
+Started POST "/api/v1/artworks" for ::1 at 2021-02-22 21:37:27 -0500
+Processing by Api::V1::ArtworksController#create as JSON
+  Parameters: {"title"=>"hghj", "image"=>"ggk", "artist_id"=>nil, "artwork"=>{"title"=>"hghj", "image"=>"ggk", "artist_id"=>nil}}
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 782)
+
+
+Started GET "/api/v1/artworks" for ::1 at 2021-02-22 21:37:38 -0500
+Processing by Api::V1::ArtworksController#index as */*
+  [1m[36mArtwork Load (0.4ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+Started GET "/api/v1/artists" for ::1 at 2021-02-22 21:37:38 -0500
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Processing by Api::V1::ArtistsController#index as */*
+  [1m[36mCACHE Artist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArtist Load (0.9ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.9ms | Allocations: 2979)
+
+
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 31ms (Views: 29.5ms | ActiveRecord: 0.9ms | Allocations: 8403)
+
+
+Started POST "/api/v1/artworks" for ::1 at 2021-02-22 21:37:49 -0500
+Processing by Api::V1::ArtworksController#create as JSON
+  Parameters: {"title"=>"Stormy Sea in Etretat", "image"=>"https://www.claude-monet.com/images/paintings/san-giorgio-maggiore-at-dusk.jpg", "artist_id"=>nil, "artwork"=>{"title"=>"Stormy Sea in Etretat", "image"=>"https://www.claude-monet.com/images/paintings/san-giorgio-maggiore-at-dusk.jpg", "artist_id"=>nil}}
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 781)
+
+
+Started GET "/api/v1/artworks" for ::1 at 2021-02-22 21:37:52 -0500
+Processing by Api::V1::ArtworksController#index as */*
+  [1m[36mArtwork Load (0.4ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Started GET "/api/v1/artists" for ::1 at 2021-02-22 21:37:52 -0500
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Processing by Api::V1::ArtistsController#index as */*
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.3ms | Allocations: 3011)
+
+
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 29ms (Views: 27.3ms | ActiveRecord: 0.9ms | Allocations: 8352)
+
+
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (69.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (19.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArtists (20210217191147)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "artists" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210217191147"]]
+  [1m[35m (14.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateArtworks (20210217191236)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "artworks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "image" varchar, "artist_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_61f542e710"
+FOREIGN KEY ("artist_id")
+  REFERENCES "artists" ("id")
+)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX "index_artworks_on_artist_id" ON "artworks" ("artist_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210217191236"]]
+  [1m[35m (14.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (3.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-02-23 02:38:48.028793"], ["updated_at", "2021-02-23 02:38:48.028793"]]
+  [1m[35m (15.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mArtwork Load (0.3ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (2.0ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Claude Monet"], ["created_at", "2021-02-23 02:39:00.397345"], ["updated_at", "2021-02-23 02:39:00.397345"]]
+  [1m[35m (12.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (1.4ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Vincent Van Gogh"], ["created_at", "2021-02-23 02:39:00.418751"], ["updated_at", "2021-02-23 02:39:00.418751"]]
+  [1m[35m (11.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArtwork Create (2.5ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Impression Sunrise"], ["image", "https://www.claude-monet.com/images/paintings/impression-sunrise.jpg"], ["artist_id", 1], ["created_at", "2021-02-23 02:39:00.468998"], ["updated_at", "2021-02-23 02:39:00.468998"]]
+  [1m[35m (11.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArtwork Create (2.3ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Garden at Saint Adresse"], ["image", "https://www.claude-monet.com/images/paintings/garden-at-sainte-adresse.jpg"], ["artist_id", 1], ["created_at", "2021-02-23 02:39:00.493918"], ["updated_at", "2021-02-23 02:39:00.493918"]]
+  [1m[35m (12.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArtwork Create (2.8ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Sunflowers"], ["image", "https://www.vangoghgallery.com/skin/img/sunflower_full.jpg"], ["artist_id", 2], ["created_at", "2021-02-23 02:39:00.522183"], ["updated_at", "2021-02-23 02:39:00.522183"]]
+  [1m[35m (11.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArtwork Create (2.5ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Starry Night"], ["image", "https://www.vangoghgallery.com/img/starry_night_full.jpg"], ["artist_id", 2], ["created_at", "2021-02-23 02:39:00.549351"], ["updated_at", "2021-02-23 02:39:00.549351"]]
+  [1m[35m (10.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mArtist Load (0.6ms)[0m  [1m[34mSELECT "artists".* FROM "artists" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/api/v1/artists" for ::1 at 2021-02-22 21:40:20 -0500
+Started GET "/api/v1/artworks" for ::1 at 2021-02-22 21:40:20 -0500
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArtistsController#index as */*
+Processing by Api::V1::ArtworksController#index as */*
+  [1m[36mArtist Load (0.5ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mArtwork Load (0.5ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 88ms (Views: 31.0ms | ActiveRecord: 2.5ms | Allocations: 7150)
+
+
+  [1m[36mArtist Load (0.5ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.7ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 94ms (Views: 80.6ms | ActiveRecord: 3.6ms | Allocations: 16398)
+
+
+Started POST "/api/v1/artworks" for ::1 at 2021-02-22 21:40:31 -0500
+Processing by Api::V1::ArtworksController#create as JSON
+  Parameters: {"title"=>"San Giorgio Maggiore at Dusk", "image"=>"https://www.claude-monet.com/images/paintings/san-giorgio-maggiore-at-dusk.jpg", "artist_id"=>nil, "artwork"=>{"title"=>"San Giorgio Maggiore at Dusk", "image"=>"https://www.claude-monet.com/images/paintings/san-giorgio-maggiore-at-dusk.jpg", "artist_id"=>nil}}
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 2243)
+
+
+Started GET "/api/v1/artworks" for ::1 at 2021-02-22 21:44:06 -0500
+Processing by Api::V1::ArtworksController#index as */*
+Started GET "/api/v1/artists" for ::1 at 2021-02-22 21:44:06 -0500
+  [1m[36mArtwork Load (0.3ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Processing by Api::V1::ArtistsController#index as */*
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.2ms | Allocations: 1991)
+
+
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 45ms (Views: 44.0ms | ActiveRecord: 0.8ms | Allocations: 7178)
+
+
+Started POST "/api/v1/artists" for ::1 at 2021-02-22 21:44:24 -0500
+Processing by Api::V1::ArtistsController#create as JSON
+  Parameters: {"name"=>"August Renoir", "artist"=>{"name"=>"August Renoir"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+  [1m[36mArtist Create (3.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "August Renoir"], ["created_at", "2021-02-23 02:44:24.479148"], ["updated_at", "2021-02-23 02:44:24.479148"]]
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+  [1m[35m (19.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+Completed 200 OK in 37ms (Views: 1.2ms | ActiveRecord: 23.1ms | Allocations: 3429)
+
+
+Started GET "/api/v1/artworks" for ::1 at 2021-02-22 21:47:59 -0500
+Processing by Api::V1::ArtworksController#index as */*
+  [1m[36mArtwork Load (0.6ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Started GET "/api/v1/artists" for ::1 at 2021-02-22 21:47:59 -0500
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Processing by Api::V1::ArtistsController#index as */*
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.3ms | Allocations: 1335)
+
+
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 30ms (Views: 28.4ms | ActiveRecord: 1.2ms | Allocations: 7546)
+
+
+Started GET "/api/v1/artworks" for ::1 at 2021-02-22 21:49:36 -0500
+Processing by Api::V1::ArtworksController#index as */*
+Started GET "/api/v1/artists" for ::1 at 2021-02-22 21:49:36 -0500
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Processing by Api::V1::ArtistsController#index as */*
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.2ms | Allocations: 2021)
+
+
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 24ms (Views: 23.2ms | ActiveRecord: 0.8ms | Allocations: 7258)
+
+
+Started POST "/api/v1/artworks" for ::1 at 2021-02-22 21:49:55 -0500
+Processing by Api::V1::ArtworksController#create as JSON
+  Parameters: {"title"=>"San Giorgio Maggiore at Dusk", "image"=>"https://www.claude-monet.com/images/paintings/san-giorgio-maggiore-at-dusk.jpg", "artist_id"=>nil, "artwork"=>{"title"=>"San Giorgio Maggiore at Dusk", "image"=>"https://www.claude-monet.com/images/paintings/san-giorgio-maggiore-at-dusk.jpg", "artist_id"=>nil}}
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 783)
+
+
+Started POST "/api/v1/artists" for ::1 at 2021-02-22 21:50:39 -0500
+Processing by Api::V1::ArtistsController#create as JSON
+  Parameters: {"name"=>"bowie", "artist"=>{"name"=>"bowie"}}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+  [1m[36mArtist Create (2.5ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "bowie"], ["created_at", "2021-02-23 02:50:39.751287"], ["updated_at", "2021-02-23 02:50:39.751287"]]
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+  [1m[35m (11.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+Completed 200 OK in 24ms (Views: 0.5ms | ActiveRecord: 14.0ms | Allocations: 3166)
+
+
+Started GET "/api/v1/artworks" for ::1 at 2021-02-22 21:52:10 -0500
+Started GET "/api/v1/artists" for ::1 at 2021-02-22 21:52:10 -0500
+Processing by Api::V1::ArtworksController#index as */*
+  [1m[36mArtwork Load (0.3ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+Processing by Api::V1::ArtistsController#index as */*
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.3ms | Allocations: 2179)
+
+
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 25ms (Views: 23.3ms | ActiveRecord: 0.9ms | Allocations: 7300)
+
+
+Started GET "/api/v1/artworks" for ::1 at 2021-02-22 21:53:05 -0500
+Started GET "/api/v1/artists" for ::1 at 2021-02-22 21:53:05 -0500
+Processing by Api::V1::ArtworksController#index as */*
+Processing by Api::V1::ArtistsController#index as */*
+  [1m[36mArtwork Load (0.7ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  [1m[36mArtist Load (0.7ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+Completed 200 OK in 26ms (Views: 23.8ms | ActiveRecord: 0.7ms | Allocations: 1838)
+
+
+  [1m[36mArtist Load (0.5ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 57ms (Views: 54.6ms | ActiveRecord: 1.7ms | Allocations: 6944)
+
+
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (68.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (20.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArtists (20210217191147)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "artists" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210217191147"]]
+  [1m[35m (14.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateArtworks (20210217191236)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "artworks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "image" varchar, "artist_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_61f542e710"
+FOREIGN KEY ("artist_id")
+  REFERENCES "artists" ("id")
+)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE  INDEX "index_artworks_on_artist_id" ON "artworks" ("artist_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210217191236"]]
+  [1m[35m (14.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (3.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-02-23 02:53:31.671562"], ["updated_at", "2021-02-23 02:53:31.671562"]]
+  [1m[35m (12.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mArtist Load (0.5ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mArtwork Load (0.4ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (3.4ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Claude Monet"], ["created_at", "2021-02-23 02:53:48.208336"], ["updated_at", "2021-02-23 02:53:48.208336"]]
+  [1m[35m (73.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (4.3ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Vincent Van Gogh"], ["created_at", "2021-02-23 02:53:48.298295"], ["updated_at", "2021-02-23 02:53:48.298295"]]
+  [1m[35m (20.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Load (0.7ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArtwork Create (4.7ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Impression Sunrise"], ["image", "https://www.claude-monet.com/images/paintings/impression-sunrise.jpg"], ["artist_id", 1], ["created_at", "2021-02-23 02:53:48.391664"], ["updated_at", "2021-02-23 02:53:48.391664"]]
+  [1m[35m (18.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Load (0.5ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArtwork Create (4.3ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Garden at Saint Adresse"], ["image", "https://www.claude-monet.com/images/paintings/garden-at-sainte-adresse.jpg"], ["artist_id", 1], ["created_at", "2021-02-23 02:53:48.437670"], ["updated_at", "2021-02-23 02:53:48.437670"]]
+  [1m[35m (20.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Load (0.5ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArtwork Create (4.8ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Sunflowers"], ["image", "https://www.vangoghgallery.com/skin/img/sunflower_full.jpg"], ["artist_id", 2], ["created_at", "2021-02-23 02:53:48.486154"], ["updated_at", "2021-02-23 02:53:48.486154"]]
+  [1m[35m (20.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Load (0.4ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArtwork Create (4.5ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Starry Night"], ["image", "https://www.vangoghgallery.com/img/starry_night_full.jpg"], ["artist_id", 2], ["created_at", "2021-02-23 02:53:48.532045"], ["updated_at", "2021-02-23 02:53:48.532045"]]
+  [1m[35m (18.3ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/api/v1/artworks" for ::1 at 2021-02-22 21:54:04 -0500
+Started GET "/api/v1/artists" for ::1 at 2021-02-22 21:54:04 -0500
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArtistsController#index as */*
+Processing by Api::V1::ArtworksController#index as */*
+  [1m[36mArtist Load (0.5ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mArtwork Load (0.5ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 36ms (Views: 24.7ms | ActiveRecord: 2.2ms | Allocations: 7140)
+
+
+  [1m[36mArtist Load (0.5ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 73ms (Views: 63.0ms | ActiveRecord: 3.0ms | Allocations: 16304)
+
+
+Started POST "/api/v1/artworks" for ::1 at 2021-02-22 21:54:14 -0500
+Processing by Api::V1::ArtworksController#create as JSON
+  Parameters: {"title"=>"San Giorgio Maggiore at Dusk", "image"=>"https://www.claude-monet.com/images/paintings/san-giorgio-maggiore-at-dusk.jpg", "artist_id"=>nil, "artwork"=>{"title"=>"San Giorgio Maggiore at Dusk", "image"=>"https://www.claude-monet.com/images/paintings/san-giorgio-maggiore-at-dusk.jpg", "artist_id"=>nil}}
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 2243)
+
+
+Started POST "/api/v1/artworks" for ::1 at 2021-02-22 21:55:42 -0500
+Processing by Api::V1::ArtworksController#create as JSON
+  Parameters: {"title"=>"San Giorgio Maggiore at Dusk", "image"=>"https://www.claude-monet.com/images/paintings/san-giorgio-maggiore-at-dusk.jpg", "artist_id"=>nil, "artwork"=>{"title"=>"San Giorgio Maggiore at Dusk", "image"=>"https://www.claude-monet.com/images/paintings/san-giorgio-maggiore-at-dusk.jpg", "artist_id"=>nil}}
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 795)
+
+
+Started GET "/api/v1/artworks" for ::1 at 2021-02-22 21:55:46 -0500
+Processing by Api::V1::ArtworksController#index as */*
+  [1m[36mArtwork Load (0.3ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Started GET "/api/v1/artists" for ::1 at 2021-02-22 21:55:46 -0500
+  [1m[36mCACHE Artist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Processing by Api::V1::ArtistsController#index as */*
+  [1m[36mArtist Load (0.4ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.4ms | Allocations: 1943)
+
+
+Completed 200 OK in 28ms (Views: 26.8ms | ActiveRecord: 0.9ms | Allocations: 7292)
+
+
+Started POST "/api/v1/artworks" for ::1 at 2021-02-22 21:55:54 -0500
+Processing by Api::V1::ArtworksController#create as JSON
+  Parameters: {"title"=>"San Giorgio Maggiore at Dusk", "image"=>"https://www.claude-monet.com/images/paintings/san-giorgio-maggiore-at-dusk.jpg", "artist_id"=>nil, "artwork"=>{"title"=>"San Giorgio Maggiore at Dusk", "image"=>"https://www.claude-monet.com/images/paintings/san-giorgio-maggiore-at-dusk.jpg", "artist_id"=>nil}}
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 792)
+
+
+Started GET "/api/v1/artworks" for ::1 at 2021-02-22 21:57:10 -0500
+Started GET "/api/v1/artists" for ::1 at 2021-02-22 21:57:10 -0500
+Processing by Api::V1::ArtworksController#index as */*
+Processing by Api::V1::ArtistsController#index as */*
+  [1m[36mArtwork Load (0.5ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  [1m[36mArtist Load (0.6ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+  [1m[36mArtist Load (1.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 17ms (Views: 15.4ms | ActiveRecord: 0.6ms | Allocations: 1907)
+
+
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.5ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 48ms (Views: 45.0ms | ActiveRecord: 2.1ms | Allocations: 6775)
+
+
+Started POST "/api/v1/artworks" for ::1 at 2021-02-22 21:57:18 -0500
+Processing by Api::V1::ArtworksController#create as JSON
+  Parameters: {"title"=>"San Giorgio Maggiore at Dusk", "image"=>"https://www.claude-monet.com/images/paintings/san-giorgio-maggiore-at-dusk.jpg", "artist_id"=>nil, "artwork"=>{"title"=>"San Giorgio Maggiore at Dusk", "image"=>"https://www.claude-monet.com/images/paintings/san-giorgio-maggiore-at-dusk.jpg", "artist_id"=>nil}}
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 781)
+
+
+Started GET "/api/v1/artworks" for ::1 at 2021-02-22 21:58:55 -0500
+Processing by Api::V1::ArtworksController#index as */*
+  [1m[36mArtwork Load (1.5ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+Started GET "/api/v1/artists" for ::1 at 2021-02-22 21:58:55 -0500
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Processing by Api::V1::ArtistsController#index as */*
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mArtist Load (0.5ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.2ms | Allocations: 2207)
+
+
+Completed 200 OK in 26ms (Views: 23.5ms | ActiveRecord: 2.4ms | Allocations: 7066)
+
+
+Started POST "/api/v1/artworks" for ::1 at 2021-02-22 22:04:14 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::ArtworksController#create as JSON
+  Parameters: {"title"=>"San Giorgio Maggiore at Dusk", "image"=>"https://www.claude-monet.com/images/paintings/san-giorgio-maggiore-at-dusk.jpg", "artist_id"=>nil, "artwork"=>{"title"=>"San Giorgio Maggiore at Dusk", "image"=>"https://www.claude-monet.com/images/paintings/san-giorgio-maggiore-at-dusk.jpg", "artist_id"=>nil}}
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 781)
+
+
+Started GET "/api/v1/artworks" for ::1 at 2021-02-22 22:04:18 -0500
+Processing by Api::V1::ArtworksController#index as */*
+  [1m[36mArtwork Load (0.4ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+Started GET "/api/v1/artists" for ::1 at 2021-02-22 22:04:18 -0500
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Processing by Api::V1::ArtistsController#index as */*
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+Completed 200 OK in 24ms (Views: 22.4ms | ActiveRecord: 1.1ms | Allocations: 7160)
+
+
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.2ms | Allocations: 2117)
+
+
+Started POST "/api/v1/artworks" for ::1 at 2021-02-22 22:04:49 -0500
+Processing by Api::V1::ArtworksController#create as JSON
+  Parameters: {"title"=>"San Giorgio Maggiore at Dusk", "image"=>"https://www.claude-monet.com/images/paintings/san-giorgio-maggiore-at-dusk.jpg", "artist_id"=>1, "artwork"=>{"title"=>"San Giorgio Maggiore at Dusk", "image"=>"https://www.claude-monet.com/images/paintings/san-giorgio-maggiore-at-dusk.jpg", "artist_id"=>1}}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+  [1m[36mArtist Load (0.6ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+  [1m[36mArtwork Create (3.2ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "San Giorgio Maggiore at Dusk"], ["image", "https://www.claude-monet.com/images/paintings/san-giorgio-maggiore-at-dusk.jpg"], ["artist_id", 1], ["created_at", "2021-02-23 03:04:49.703356"], ["updated_at", "2021-02-23 03:04:49.703356"]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+  [1m[35m (17.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+Completed 200 OK in 38ms (Views: 1.2ms | ActiveRecord: 21.4ms | Allocations: 4779)
+
+
+Started GET "/api/v1/artworks" for ::1 at 2021-02-23 05:18:19 -0500
+Started GET "/api/v1/artists" for ::1 at 2021-02-23 05:18:19 -0500
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArtworksController#index as */*
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Processing by Api::V1::ArtistsController#index as */*
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.1ms | Allocations: 4453)
+
+
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 53ms (Views: 46.3ms | ActiveRecord: 2.2ms | Allocations: 18959)
+
+
+Started GET "/api/v1/artworks" for ::1 at 2021-02-23 05:18:50 -0500
+Started GET "/api/v1/artists" for ::1 at 2021-02-23 05:18:50 -0500
+Processing by Api::V1::ArtworksController#index as */*
+  [1m[36mArtwork Load (0.3ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+Processing by Api::V1::ArtistsController#index as */*
+  [1m[36mArtist Load (0.8ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.8ms | Allocations: 1018)
+
+
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 71ms (Views: 69.4ms | ActiveRecord: 0.8ms | Allocations: 8301)
+
+
+Started POST "/api/v1/artworks" for ::1 at 2021-02-23 05:21:20 -0500
+Processing by Api::V1::ArtworksController#create as JSON
+  Parameters: {"title"=>"Pont Neuf", "image"=>"https://www.claude-monet.com/images/paintings/poppies.jpg", "artist_id"=>1, "artwork"=>{"title"=>"Pont Neuf", "image"=>"https://www.claude-monet.com/images/paintings/poppies.jpg", "artist_id"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+  [1m[36mArtwork Create (2.7ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Pont Neuf"], ["image", "https://www.claude-monet.com/images/paintings/poppies.jpg"], ["artist_id", 1], ["created_at", "2021-02-23 10:21:20.995234"], ["updated_at", "2021-02-23 10:21:20.995234"]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+  [1m[35m (11.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+Completed 200 OK in 27ms (Views: 0.9ms | ActiveRecord: 14.7ms | Allocations: 4882)
+
+
+Started GET "/api/v1/artworks" for ::1 at 2021-02-23 05:22:52 -0500
+Processing by Api::V1::ArtworksController#index as */*
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+Started GET "/api/v1/artists" for ::1 at 2021-02-23 05:22:52 -0500
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Processing by Api::V1::ArtistsController#index as */*
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.9ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 14ms (Views: 13.4ms | ActiveRecord: 0.3ms | Allocations: 2911)
+
+
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 36ms (Views: 34.2ms | ActiveRecord: 1.5ms | Allocations: 9609)
+
+
+Started POST "/api/v1/artworks" for ::1 at 2021-02-23 05:23:19 -0500
+Processing by Api::V1::ArtworksController#create as JSON
+  Parameters: {"title"=>"Stormy Sea in Etretat", "image"=>"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUSExIWFRUXFhcYGBUVFRcVFhUVFhUXFhUYGxUYHSggGBslHRgXITEiJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGxAQGi0lHyYtLS0tLy8tLS0tNS0tLS0tLS8rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAM0A9gMBIgACEQEDEQH/xAAcAAACAwEBAQEAAAAAAAAAAAADBAIFBgEABwj/xAA9EAACAQIEAwYEAwYGAgMAAAABAgMAEQQSITEFQVEGEyJhcYEykaHRI7HBBxRCUuHwM2JygpLxFbIkU6L/xAAZAQADAQEBAAAAAAAAAAAAAAAAAgMBBAX/xAApEQACAgICAQMDBAMAAAAAAAAAAQIRAyESMUETUfAEImEygbHxcZGh/9oADAMBAAIRAxEAPwDAqtFVa8q0ZVoAii0VUqSLRlSgCKJRVWpqlFVKAIKlFVKmqUVUrQBqlFVKIsdFVK0AQSiBKKsdECUAACUSKBmNlUk/l6nlVlwzhMk5IQDTmdBfkPWrfE8MEYyA2+pNTnOkPGPIqMPwQt8Uij0u9vlVnF2VVtsQP+H3YVX4rCuNQSR6kfShYfFSKfC7gj/MT9DSeoynpItp+xkg+CRX8rFfvVDi8C8RyyKVPmCAfQnetfwjtEQQsx/3bD36flWmcRzIVJDKRbxAMPnTqZNxaPkvd1wx1o+PdnzA2ZB4DyGtvtVIBy50ykmY0KmOomOnTHUWiphREx1Bo6eaOhmOg0RaOhMlPNHQmjoARdKCyU+0dBaOgBF0oDJT7pQXSgBBkr1MMleoAWRaMq15Fo6LSmHESjKldRKOiUARRKMqVJEoyJWgQVKMqUREoqJQBBUoqx0VI6KsdaAFY6suC8JOIlCDQbs3RRv70AR1tuyMASB3HxNc38hoKxs1Cc7ZJ444wBGh0Ub3HMk8/On8dAo5Ak65t", "artist_id"=>1, "artwork"=>{"title"=>"Stormy Sea in Etretat", "image"=>"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUSExIWFRUXFhcYGBUVFRcVFhUVFhUXFhUYGxUYHSggGBslHRgXITEiJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGxAQGi0lHyYtLS0tLy8tLS0tNS0tLS0tLS8rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAM0A9gMBIgACEQEDEQH/xAAcAAACAwEBAQEAAAAAAAAAAAADBAIFBgEABwj/xAA9EAACAQIEAwYEAwYGAgMAAAABAgMAEQQSITEFQVEGEyJhcYEykaHRI7HBBxRCUuHwM2JygpLxFbIkU6L/xAAZAQADAQEBAAAAAAAAAAAAAAAAAgMBBAX/xAApEQACAgICAQMDBAMAAAAAAAAAAQIRAyESMUETUfAEImEygbHxcZGh/9oADAMBAAIRAxEAPwDAqtFVa8q0ZVoAii0VUqSLRlSgCKJRVWpqlFVKAIKlFVKmqUVUrQBqlFVKIsdFVK0AQSiBKKsdECUAACUSKBmNlUk/l6nlVlwzhMk5IQDTmdBfkPWrfE8MEYyA2+pNTnOkPGPIqMPwQt8Uij0u9vlVnF2VVtsQP+H3YVX4rCuNQSR6kfShYfFSKfC7gj/MT9DSeoynpItp+xkg+CRX8rFfvVDi8C8RyyKVPmCAfQnetfwjtEQQsx/3bD36flWmcRzIVJDKRbxAMPnTqZNxaPkvd1wx1o+PdnzA2ZB4DyGtvtVIBy50ykmY0KmOomOnTHUWiphREx1Bo6eaOhmOg0RaOhMlPNHQmjoARdKCyU+0dBaOgBF0oDJT7pQXSgBBkr1MMleoAWRaMq15Fo6LSmHESjKldRKOiUARRKMqVJEoyJWgQVKMqUREoqJQBBUoqx0VI6KsdaAFY6suC8JOIlCDQbs3RRv70AR1tuyMASB3HxNc38hoKxs1Cc7ZJ444wBGh0Ub3HMk8/On8dAo5Ak65t", "artist_id"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+  [1m[36mArtwork Create (1.4ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Stormy Sea in Etretat"], ["image", "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUSExIWFRUXFhcYGBUVFRcVFhUVFhUXFhUYGxUYHSggGBslHRgXITEiJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGxAQGi0lHyYtLS0tLy8tLS0tNS0tLS0tLS8rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAM0A9gMBIgACEQEDEQH/xAAcAAACAwEBAQEAAAAAAAAAAAADBAIFBgEABwj/xAA9EAACAQIEAwYEAwYGAgMAAAABAgMAEQQSITEFQVEGEyJhcYEykaHRI7HBBxRCUuHwM2JygpLxFbIkU6L/xAAZAQADAQEBAAAAAAAAAAAAAAAAAgMBBAX/xAApEQACAgICAQMDBAMAAAAAAAAAAQIRAyESMUETUfAEImEygbHxcZGh/9oADAMBAAIRAxEAPwDAqtFVa8q0ZVoAii0VUqSLRlSgCKJRVWpqlFVKAIKlFVKmqUVUrQBqlFVKIsdFVK0AQSiBKKsdECUAACUSKBmNlUk/l6nlVlwzhMk5IQDTmdBfkPWrfE8MEYyA2+pNTnOkPGPIqMPwQt8Uij0u9vlVnF2VVtsQP+H3YVX4rCuNQSR6kfShYfFSKfC7gj/MT9DSeoynpItp+xkg+CRX8rFfvVDi8C8RyyKVPmCAfQnetfwjtEQQsx/3bD36flWmcRzIVJDKRbxAMPnTqZNxaPkvd1wx1o+PdnzA2ZB4DyGtvtVIBy50ykmY0KmOomOnTHUWiphREx1Bo6eaOhmOg0RaOhMlPNHQmjoARdKCyU+0dBaOgBF0oDJT7pQXSgBBkr1MMleoAWRaMq15Fo6LSmHESjKldRKOiUARRKMqVJEoyJWgQVKMqUREoqJQBBUoqx0VI6KsdaAFY6suC8JOIlCDQbs3RRv70AR1tuyMASB3HxNc38hoKxs1Cc7ZJ444wBGh0Ub3HMk8/On8dAo5Ak65t"], ["artist_id", 1], ["created_at", "2021-02-23 10:23:20.002292"], ["updated_at", "2021-02-23 10:23:20.002292"]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+  [1m[35m (15.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+Completed 200 OK in 30ms (Views: 0.8ms | ActiveRecord: 17.5ms | Allocations: 4622)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (12.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArtists (20210217191147)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "artists" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210217191147"]]
+  [1m[35m (5.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateArtworks (20210217191236)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "artworks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "image" varchar, "artist_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_61f542e710"
+FOREIGN KEY ("artist_id")
+  REFERENCES "artists" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_artworks_on_artist_id" ON "artworks" ("artist_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210217191236"]]
+  [1m[35m (6.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-02-23 10:27:00.481114"], ["updated_at", "2021-02-23 10:27:00.481114"]]
+  [1m[35m (5.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mArtwork Load (0.1ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (1.3ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Claude Monet"], ["created_at", "2021-02-23 10:27:21.760730"], ["updated_at", "2021-02-23 10:27:21.760730"]]
+  [1m[35m (8.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Create (1.0ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Vincent Van Gogh"], ["created_at", "2021-02-23 10:27:21.774910"], ["updated_at", "2021-02-23 10:27:21.774910"]]
+  [1m[35m (5.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArtwork Create (1.3ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Impression Sunrise"], ["image", "https://www.claude-monet.com/images/paintings/impression-sunrise.jpg"], ["artist_id", 1], ["created_at", "2021-02-23 10:27:21.797433"], ["updated_at", "2021-02-23 10:27:21.797433"]]
+  [1m[35m (5.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArtwork Create (1.2ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Garden at Saint Adresse"], ["image", "https://www.claude-monet.com/images/paintings/garden-at-sainte-adresse.jpg"], ["artist_id", 1], ["created_at", "2021-02-23 10:27:21.810278"], ["updated_at", "2021-02-23 10:27:21.810278"]]
+  [1m[35m (5.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArtwork Create (1.1ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Sunflowers"], ["image", "https://www.vangoghgallery.com/skin/img/sunflower_full.jpg"], ["artist_id", 2], ["created_at", "2021-02-23 10:27:21.822557"], ["updated_at", "2021-02-23 10:27:21.822557"]]
+  [1m[35m (6.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArtwork Create (1.1ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Starry Night"], ["image", "https://www.vangoghgallery.com/img/starry_night_full.jpg"], ["artist_id", 2], ["created_at", "2021-02-23 10:27:21.834526"], ["updated_at", "2021-02-23 10:27:21.834526"]]
+  [1m[35m (6.4ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/api/v1/artworks" for ::1 at 2021-02-23 05:45:11 -0500
+Started GET "/api/v1/artists" for ::1 at 2021-02-23 05:45:11 -0500
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArtworksController#index as */*
+Processing by Api::V1::ArtistsController#index as */*
+  [1m[36mArtwork Load (0.6ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.8ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 38ms (Views: 31.2ms | ActiveRecord: 0.2ms | Allocations: 11653)
+
+
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 61ms (Views: 52.3ms | ActiveRecord: 3.3ms | Allocations: 17818)
+
+
+Started GET "/api/v1/artworks" for ::1 at 2021-02-23 05:49:39 -0500
+Started GET "/api/v1/artists" for ::1 at 2021-02-23 05:49:39 -0500
+Processing by Api::V1::ArtworksController#index as */*
+  [1m[36mArtwork Load (0.3ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Processing by Api::V1::ArtistsController#index as */*
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.2ms | Allocations: 1014)
+
+
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 66ms (Views: 65.0ms | ActiveRecord: 0.9ms | Allocations: 7160)
+
+
+Started POST "/api/v1/artists" for ::1 at 2021-02-23 05:49:59 -0500
+Processing by Api::V1::ArtistsController#create as JSON
+  Parameters: {"name"=>"August Renoir", "artist"=>{"name"=>"August Renoir"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+  [1m[36mArtist Create (2.4ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "August Renoir"], ["created_at", "2021-02-23 10:49:59.594242"], ["updated_at", "2021-02-23 10:49:59.594242"]]
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+  [1m[35m (5.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+Completed 200 OK in 14ms (Views: 0.4ms | ActiveRecord: 8.3ms | Allocations: 3113)
+
+
+Started GET "/api/v1/artists" for ::1 at 2021-02-23 05:55:13 -0500
+Started GET "/api/v1/artworks" for ::1 at 2021-02-23 05:55:13 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::ArtistsController#index as */*
+  [1m[36mArtist Load (0.6ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+Processing by Api::V1::ArtworksController#index as */*
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+  [1m[36mArtwork Load (0.3ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.6ms | Allocations: 1651)
+
+
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 20ms (Views: 18.2ms | ActiveRecord: 0.9ms | Allocations: 6098)
+
+
+Started POST "/api/v1/artists" for ::1 at 2021-02-23 05:55:20 -0500
+Processing by Api::V1::ArtistsController#create as JSON
+  Parameters: {"name"=>"Paul Cezanne", "artist"=>{"name"=>"Paul Cezanne"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+  [1m[36mArtist Create (1.6ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Paul Cezanne"], ["created_at", "2021-02-23 10:55:20.814433"], ["updated_at", "2021-02-23 10:55:20.814433"]]
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+  [1m[35m (6.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+Completed 200 OK in 15ms (Views: 0.3ms | ActiveRecord: 8.4ms | Allocations: 3208)
+
+
+Started GET "/api/v1/artworks" for ::1 at 2021-02-23 05:55:52 -0500
+Processing by Api::V1::ArtworksController#index as */*
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+Started GET "/api/v1/artists" for ::1 at 2021-02-23 05:55:52 -0500
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Processing by Api::V1::ArtistsController#index as */*
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.4ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 16ms (Views: 14.3ms | ActiveRecord: 0.4ms | Allocations: 2851)
+
+
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 34ms (Views: 31.8ms | ActiveRecord: 0.8ms | Allocations: 7573)
+
+
+Started POST "/api/v1/artists" for ::1 at 2021-02-23 05:56:03 -0500
+Processing by Api::V1::ArtistsController#create as JSON
+  Parameters: {"name"=>"bowie", "artist"=>{"name"=>"bowie"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+  [1m[36mArtist Create (1.7ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "bowie"], ["created_at", "2021-02-23 10:56:03.360861"], ["updated_at", "2021-02-23 10:56:03.360861"]]
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+  [1m[35m (6.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+Completed 200 OK in 14ms (Views: 0.4ms | ActiveRecord: 7.9ms | Allocations: 2824)
+
+
+Started GET "/api/v1/artworks" for ::1 at 2021-02-23 05:56:56 -0500
+Started GET "/api/v1/artists" for ::1 at 2021-02-23 05:56:56 -0500
+Processing by Api::V1::ArtworksController#index as */*
+Processing by Api::V1::ArtistsController#index as */*
+  [1m[36mArtist Load (0.4ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mArtwork Load (0.5ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.4ms | Allocations: 1924)
+
+
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 26ms (Views: 24.7ms | ActiveRecord: 1.1ms | Allocations: 7079)
+
+
+Started POST "/api/v1/artists" for ::1 at 2021-02-23 05:57:04 -0500
+Processing by Api::V1::ArtistsController#create as JSON
+  Parameters: {"name"=>"Ziggy", "artist"=>{"name"=>"Ziggy"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+  [1m[36mArtist Create (1.7ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Ziggy"], ["created_at", "2021-02-23 10:57:04.580702"], ["updated_at", "2021-02-23 10:57:04.580702"]]
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+  [1m[35m (7.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `create'
+Completed 200 OK in 17ms (Views: 0.5ms | ActiveRecord: 9.1ms | Allocations: 3195)
+
+
+Started GET "/api/v1/artworks" for ::1 at 2021-02-23 05:58:52 -0500
+Processing by Api::V1::ArtworksController#index as */*
+  [1m[36mArtwork Load (1.9ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/api/v1/artists" for ::1 at 2021-02-23 05:58:52 -0500
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Processing by Api::V1::ArtistsController#index as */*
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.2ms | Allocations: 3035)
+
+
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 35ms (Views: 31.6ms | ActiveRecord: 2.4ms | Allocations: 7581)
+
+
+Started GET "/api/v1/artworks" for ::1 at 2021-02-23 06:00:41 -0500
+Processing by Api::V1::ArtworksController#index as */*
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+Started GET "/api/v1/artists" for ::1 at 2021-02-23 06:00:41 -0500
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Processing by Api::V1::ArtistsController#index as */*
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.2ms | Allocations: 1611)
+
+
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 26ms (Views: 24.6ms | ActiveRecord: 0.8ms | Allocations: 7719)
+
+
+Started GET "/api/v1/artworks" for ::1 at 2021-02-23 06:04:36 -0500
+Processing by Api::V1::ArtworksController#index as */*
+  [1m[36mArtwork Load (0.4ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+Started GET "/api/v1/artists" for ::1 at 2021-02-23 06:04:36 -0500
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Processing by Api::V1::ArtistsController#index as */*
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+Completed 200 OK in 25ms (Views: 24.8ms | ActiveRecord: 0.1ms | Allocations: 3038)
+
+
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 42ms (Views: 40.6ms | ActiveRecord: 0.8ms | Allocations: 7677)
+
+
+Started GET "/api/v1/artworks" for ::1 at 2021-02-23 06:04:49 -0500
+Started GET "/api/v1/artists" for ::1 at 2021-02-23 06:04:49 -0500
+Processing by Api::V1::ArtworksController#index as */*
+Processing by Api::V1::ArtistsController#index as */*
+  [1m[36mArtwork Load (0.5ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.3ms | Allocations: 1996)
+
+
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.4ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 22ms (Views: 20.8ms | ActiveRecord: 1.2ms | Allocations: 7114)
+
+
+Started POST "/api/v1/artworks" for ::1 at 2021-02-23 06:05:22 -0500
+Processing by Api::V1::ArtworksController#create as JSON
+  Parameters: {"title"=>"Pont Neuf", "image"=>"https://www.claude-monet.com/images/paintings/poppies.jpg", "artist_id"=>1, "artwork"=>{"title"=>"Pont Neuf", "image"=>"https://www.claude-monet.com/images/paintings/poppies.jpg", "artist_id"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+  [1m[36mArtwork Create (3.6ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Pont Neuf"], ["image", "https://www.claude-monet.com/images/paintings/poppies.jpg"], ["artist_id", 1], ["created_at", "2021-02-23 11:05:22.440201"], ["updated_at", "2021-02-23 11:05:22.440201"]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+  [1m[35m (9.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+Completed 200 OK in 25ms (Views: 0.8ms | ActiveRecord: 13.0ms | Allocations: 4736)
+
+
+Started GET "/api/v1/artworks" for ::1 at 2021-02-23 06:06:18 -0500
+Processing by Api::V1::ArtworksController#index as */*
+  [1m[36mArtwork Load (0.6ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Started GET "/api/v1/artists" for ::1 at 2021-02-23 06:06:18 -0500
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Processing by Api::V1::ArtistsController#index as */*
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArtist Load (0.4ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.4ms | Allocations: 2312)
+
+
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 34ms (Views: 32.2ms | ActiveRecord: 1.1ms | Allocations: 8937)
+
+
+Started POST "/api/v1/artworks" for ::1 at 2021-02-23 06:06:32 -0500
+Processing by Api::V1::ArtworksController#create as JSON
+  Parameters: {"title"=>"San Giorgio Maggiore at Dusk", "image"=>"https://www.claude-monet.com/images/paintings/san-giorgio-maggiore-at-dusk.jpg", "artist_id"=>1, "artwork"=>{"title"=>"San Giorgio Maggiore at Dusk", "image"=>"https://www.claude-monet.com/images/paintings/san-giorgio-maggiore-at-dusk.jpg", "artist_id"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+  [1m[36mArtwork Create (1.7ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "San Giorgio Maggiore at Dusk"], ["image", "https://www.claude-monet.com/images/paintings/san-giorgio-maggiore-at-dusk.jpg"], ["artist_id", 1], ["created_at", "2021-02-23 11:06:32.687058"], ["updated_at", "2021-02-23 11:06:32.687058"]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+  [1m[35m (5.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+Completed 200 OK in 16ms (Views: 1.0ms | ActiveRecord: 7.6ms | Allocations: 4597)
+
+
+Started POST "/api/v1/artworks" for ::1 at 2021-02-23 06:09:08 -0500
+Processing by Api::V1::ArtworksController#create as JSON
+  Parameters: {"title"=>"The Poppy Field near Argenteuil", "image"=>"https://www.claude-monet.com/images/paintings/poppies.jpg", "artist_id"=>1, "artwork"=>{"title"=>"The Poppy Field near Argenteuil", "image"=>"https://www.claude-monet.com/images/paintings/poppies.jpg", "artist_id"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+  [1m[36mArtwork Create (1.4ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "The Poppy Field near Argenteuil"], ["image", "https://www.claude-monet.com/images/paintings/poppies.jpg"], ["artist_id", 1], ["created_at", "2021-02-23 11:09:08.265097"], ["updated_at", "2021-02-23 11:09:08.265097"]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+  [1m[35m (14.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+Completed 200 OK in 23ms (Views: 0.4ms | ActiveRecord: 16.1ms | Allocations: 4186)
+
+
+Started POST "/api/v1/artworks" for ::1 at 2021-02-23 06:10:28 -0500
+Processing by Api::V1::ArtworksController#create as JSON
+  Parameters: {"title"=>"Cafe Terrace at Night", "image"=>"https://www.vangoghgallery.com/catalog/catalog_img/cafe-terrace-on-the-place-du-forum.jpg", "artist_id"=>2, "artwork"=>{"title"=>"Cafe Terrace at Night", "image"=>"https://www.vangoghgallery.com/catalog/catalog_img/cafe-terrace-on-the-place-du-forum.jpg", "artist_id"=>2}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+  [1m[36mArtwork Create (2.3ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Cafe Terrace at Night"], ["image", "https://www.vangoghgallery.com/catalog/catalog_img/cafe-terrace-on-the-place-du-forum.jpg"], ["artist_id", 2], ["created_at", "2021-02-23 11:10:28.744002"], ["updated_at", "2021-02-23 11:10:28.744002"]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+  [1m[35m (14.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+Completed 200 OK in 25ms (Views: 0.4ms | ActiveRecord: 16.7ms | Allocations: 4600)
+
+
+Started GET "/api/v1/artworks" for ::1 at 2021-02-23 06:13:00 -0500
+Processing by Api::V1::ArtworksController#index as */*
+Started GET "/api/v1/artists" for ::1 at 2021-02-23 06:13:00 -0500
+  [1m[36mArtwork Load (0.4ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Processing by Api::V1::ArtistsController#index as */*
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:5:in `index'
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.3ms | Allocations: 2076)
+
+
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.0ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+  [1m[36mCACHE Artist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:5:in `index'
+Completed 200 OK in 43ms (Views: 40.1ms | ActiveRecord: 1.3ms | Allocations: 12937)
+
+
+Started POST "/api/v1/artworks" for ::1 at 2021-02-23 06:13:39 -0500
+Processing by Api::V1::ArtworksController#create as JSON
+  Parameters: {"title"=>"Cypresses", "image"=>"https://www.vangoghgallery.com/catalog/catalog_img/Cypresses.jpg", "artist_id"=>2, "artwork"=>{"title"=>"Cypresses", "image"=>"https://www.vangoghgallery.com/catalog/catalog_img/Cypresses.jpg", "artist_id"=>2}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+  [1m[36mArtwork Create (1.3ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Cypresses"], ["image", "https://www.vangoghgallery.com/catalog/catalog_img/Cypresses.jpg"], ["artist_id", 2], ["created_at", "2021-02-23 11:13:39.928937"], ["updated_at", "2021-02-23 11:13:39.928937"]]
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+  [1m[35m (6.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/artworks_controller.rb:15:in `create'
+Completed 200 OK in 18ms (Views: 0.8ms | ActiveRecord: 7.7ms | Allocations: 4985)
+
+
