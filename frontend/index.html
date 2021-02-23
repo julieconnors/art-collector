@@ -15,24 +15,33 @@
     </head>
     <body>
         <h1>Art Collector</h1>
+        
+        <p>Add Piece to Collection:</p>
 
-        <button id="add-artwork-button">Add Piece</button>
         <div class="error"></div>
-        <div class="form-container" style="visibility: hidden">
+
+        <div class="form-container" style="visibility: visible">
             <form class="artwork-form">
                 <input type="text name="title" placeholder="Title" id="artwork-title">
                 <br>
                 <input type="text" name="image" placeholder="Image URL" id="artwork-image">
                 <p>Select an artist:</p>
-                <select name="artist" id="artwork-artist">
-                    <!-- <option value="1">Monet</option> -->
-                    <!-- <option value="2">Van Gogh</option> -->
-                </select>
+                    <select name="artist" id="artwork-artist">
+                    </select>
+                    <br>
                 <input type="submit" value="Submit" class="submit" id="submit-artwork">
             </form>
             <div class="add-artist">
-                <p> Or: </p>
-                <button id="add-artist-button">Add an Artist</button>
+                <div class="artist-button-div">
+                    <p> Or: </p>
+                    <button id="add-artist-button">Add an Artist</button>
+                </div>
+                <form class="artist-form" style="visibility: hidden">
+                    <p>Add Artist</p>
+                    <input type="text" name="artist-name" placeholder="Artist Name" id="artist-name">
+                    <br>
+                    <input type="submit" value="Submit" class="submit" id="submit-artist">
+                </form>
             </div>
         </div>
         <div class="main">
