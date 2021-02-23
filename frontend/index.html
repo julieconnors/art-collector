@@ -9,31 +9,33 @@
         <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">        
         <script type="text/javascript" src="src/service.js"></script>
         <script type="text/javascript" src="src/artwork.js"></script>
+        <script type="text/javascript" src="src/artist.js"></script>
         <script type="text/javascript" src="src/index.js"></script>
 
     </head>
     <body>
         <h1>Art Collector</h1>
 
-        <button>Add Piece</button>
+        <button id="add-artwork-button">Add Piece</button>
         <div class="error"></div>
-        <div  id="form-container" style="visibility: hidden">
+        <div class="form-container" style="visibility: hidden">
             <form class="artwork-form">
                 <input type="text name="title" placeholder="Title" id="artwork-title">
-                <br><br>
+                <br>
                 <input type="text" name="image" placeholder="Image URL" id="artwork-image">
                 <p>Select an artist:</p>
                 <select name="artist" id="artwork-artist">
-                    <option value="1">Monet</option>
-                    <option value="2">Van Gogh</option>
+                    <!-- <option value="1">Monet</option> -->
+                    <!-- <option value="2">Van Gogh</option> -->
                 </select>
-                <p>Or add an artist:</p>
-                <input type="text" name="artist" placeholder="Artist Name" id="artist">
-                <br><br>
-                <input type="submit" value="Submit" class="submit">
+                <input type="submit" value="Submit" class="submit" id="submit-artwork">
             </form>
+            <div class="add-artist">
+                <p> Or: </p>
+                <button id="add-artist-button">Add an Artist</button>
+            </div>
         </div>
-        <div id="main">
+        <div class="main">
 
         </div>
     </body>
