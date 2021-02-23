@@ -1,7 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Art Collector is a virtual art collection application. Users can view the current collection and create or remove artworks from the collection.
 
 Things you may want to cover:
 
@@ -10,15 +9,12 @@ Things you may want to cover:
 * System dependencies
 
 * Configuration
+Run bundle install
 
-* Database creation
+* Database setup
 
-* Database initialization
+Run rails db:migrate
+Run rails db:seed
 
-* How to run the test suite
+Open the index.html file in browser
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

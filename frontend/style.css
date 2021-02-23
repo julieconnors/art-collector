@@ -1,0 +1,22 @@
+.error {
+    color: red;
+}
+
+body {
+    text-align: center;
+    font-family: 'Cinzel', serif;
+}
+
+.frame {
+    border: 10px solid goldenrod;
+    padding: 5px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+
+}
+
+img {
+    max-width: 100%;
+}

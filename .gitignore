@@ -1,6 +1,8 @@
 # Ignore bundler config.
 /.bundle
 
+/test/*
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
@@ -33,4 +35,3 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
-.env
