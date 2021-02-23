@@ -6,8 +6,12 @@ class Api::V1::ArtworksController < ApplicationController
     end
 
     def create
-        artwork = Artwork.new(artwork_params)
+        if params[:artist_name]
+            binding.pry
 
+            # artist = Artist.create(artist_name)
+        end
+        artwork = Artwork.new(artwork_params)
         if artwork.save
             render json: ArtworkSerializer.new(artwork)
         else
