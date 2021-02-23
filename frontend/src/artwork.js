@@ -10,7 +10,7 @@ class Artwork {
     }
 
     renderArtwork() {
-        const container = document.querySelector("#main")
+        const container = document.querySelector(".main")
 
         let frame = document.createElement("div")
         frame.setAttribute("id", this.id)
